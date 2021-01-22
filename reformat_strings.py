@@ -14,3 +14,5 @@ def delete_reapiting(s):
 def delete_last_symbol(s):
     if s[-1] == '-':
         return s[:-1]
+    else:
+        return s
