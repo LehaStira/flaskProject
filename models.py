@@ -12,15 +12,15 @@ def slugify(s):
     print(f'my_res after re is {my_res}')
     my_res = delete_last_symbol(my_res)
     my_res = delete_reapiting(my_res)
-    return my_res
+    return my_res.lower()
 
 
 class Post(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
-    title = db.column(db.String(140), nullable = False)
-    slug = db.column(db.String(140), nullable = False)
-    body = db.column(db.TEXT(), nullable = False)
-    created = db.column(db.DateTime(), default = datetime.now())
+    title = db.Column(db.String(140), nullable = False)
+    slug = db.Column(db.String(140), nullable = False)
+    body = db.Column(db.TEXT(), nullable = False)
+    created = db.Column(db.DateTime(), default = datetime.now())
 
     def __init__(self, *args, **kwargs):
         super(Post, self).__init__(*args, **kwargs)
