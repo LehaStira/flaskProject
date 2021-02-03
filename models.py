@@ -18,7 +18,9 @@ def slugify(s):
 class Post(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     title = db.Column(db.String(140), nullable = False)
-    slug = db.Column(db.String(140), nullable = False)
+    slug = db.Column(db.String(140),
+                     nullable = False,
+                     unique=True)
     body = db.Column(db.TEXT(), nullable = False)
     created = db.Column(db.DateTime(), default = datetime.now())
 

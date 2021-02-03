@@ -5,10 +5,17 @@
 
 {% endblock %}
 
-{% block content %}
-    It's a thing right from blueprints menu
+{% block content_title %}
+    Our articles!
 {% endblock %}
 
-{% block content_title %}
-    It's a blueprint content
+
+{% block content %}
+    {% for post in my_posts %}
+        <a href="{{ url_for('posts.post_detail', slug = post.slug) }}"><h1>
+        {{ post.title }}
+        </h1>
+        </a>
+    {% endfor %}
 {% endblock %}
+
