@@ -150,21 +150,27 @@ def register_all_tags(list_of_tags):
     #print(f'its ending of register_all_tags')
 
 
-def main():
-    #create_articles()
-    #print('its comment before getting list_of_posts')
+def create_tags():
+    # print('its comment before getting list_of_posts')
     list_of_posts = get_posts()
-    #print(f'its comment after getting list of posts. List of posts = {list_of_posts}')
-    #print()
+    # print(f'its comment after getting list of posts. List of posts = {list_of_posts}')
+    # print()
 
-    #print('its comment before getting tags')
+    # print('its comment before getting tags')
     my_tags = get_tags(list_of_posts)
-    #print(f'its comment after getting tags. My_tags = {my_tags}')
-    #print()
+    # print(f'its comment after getting tags. My_tags = {my_tags}')
+    # print()
 
-    #print('its comment after register_all_tags')
+    # print('its comment after register_all_tags')
     register_all_tags(my_tags)
-    #print('its comment after register_all_tags')
+    # print('its comment after register_all_tags')
+
+
+def main():
+    pass
+    #create_articles()
+    #create_tags()
+
 
 
 if __name__ == '__main__':
