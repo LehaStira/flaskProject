@@ -166,10 +166,41 @@ def create_tags():
     # print('its comment after register_all_tags')
 
 
+def select_tags_by_name(my_post):
+    title = my_post.title
+    title_list = title.split(' ')
+    print(title_list)
+    tags = []
+    for i in title_list:
+        tags += Tag.query.filter(Tag.name.contains(i))
+    print(tags)
+    return tags
+
+
+def merging_post_tags(my_post):
+    #print(f'its begining of merging_post_tags. Parametr, my_post is {my_post}')
+    my_tags = select_tags_by_name(my_post)
+    #print(f'its middle of merging_post_tags. Our tags = {my_tags}')
+    #print()
+    for i in my_tags:
+        my_post.tags.append(i)
+    #print(my_post.tags)
+
+def create_post_tags():
+    my_posts = get_posts()
+    for i in my_posts:
+        merging_post_tags(i)
+        save_post_to_db(i)
+
+
 def main():
     pass
     #create_articles()
     #create_tags()
+    #create_post_tags()
+
+
+
 
 
 
