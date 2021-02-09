@@ -1,12 +1,18 @@
 from flask import Blueprint
 from flask import render_template
 from models import Post, Tag
+from flask import request
 posts = Blueprint('posts', __name__, template_folder='templates')
 
 
 @posts.route('/')
 def index():
-    my_posts = Post.query.all()
+    q = request.args.get('q')
+    if q:
+        my_posts = Post.query.filter(Post.title.contains(q) | Post.body.contains(q)).all()
+    else:
+        my_posts = Post.query.all()
+    #my_posts = Post.query.all()
     return render_template('posts/index.html', my_posts = my_posts)
 
 
