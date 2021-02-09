@@ -186,6 +186,7 @@ def merging_post_tags(my_post):
         my_post.tags.append(i)
     #print(my_post.tags)
 
+
 def create_post_tags():
     my_posts = get_posts()
     for i in my_posts:
@@ -198,10 +199,6 @@ def main():
     #create_articles()
     #create_tags()
     #create_post_tags()
-
-
-
-
 
 
 if __name__ == '__main__':

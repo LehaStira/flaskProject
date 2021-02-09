@@ -6,6 +6,14 @@
 
 {% block content_title %}
     {{ post.title }}
+    <div class="tags">
+    {% for tag in tags %}
+        <a href="{{ url_for('posts.tag_detail', slug = tag.slug) }}"><span class="badge bg-primary">
+            {{ tag.name }}
+        </span>
+        </a>
+    {% endfor %}
+    </div>
 {% endblock %}
 
 {% block content %}
